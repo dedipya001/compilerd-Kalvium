@@ -1,10 +1,68 @@
 const testCases = [
-    // New test cases for Rust  -1 
     {
-        name: 'rust : hello world',
+        name: 'php : hello world',
         reqObject: {
-            language: 'rust',
-            script: 'fn main() { println!("hello world"); }',
+            language: 'php',
+            script: `<?php
+                echo "hello world";
+            ?>`,
+        },
+        expectedResponse: {
+            val: 'hello world',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'php : print stdin',
+        reqObject: {
+            language: 'php',
+            script: `<?php
+                $input = file_get_contents('php://stdin');
+                echo $input;
+            ?>`,
+            stdin: '1 2 3',
+        },
+        expectedResponse: {
+            val: '1 2 3',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'perl : hello world',
+        reqObject: {
+            language: 'perl',
+            script: `#!/usr/bin/perl
+                print "hello world";`,
+        },
+        expectedResponse: {
+            val: 'hello world',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'perl : print stdin',
+        reqObject: {
+            language: 'perl',
+            script: `#!/usr/bin/perl
+                while (<>) {
+                    print;
+                }`,
+            stdin: '1 2 3',
+        },
+        expectedResponse: {
+            val: '1 2 3',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'bash : hello world',
+        reqObject: {
+            language: 'bash',
+            script: 'echo "hello world"',
         },
         expectedResponse: {
             val: 'hello world\n',
@@ -12,30 +70,15 @@ const testCases = [
             error: 0,
         },
     },
-
-    // New test cases for Swift -2
     {
-        name: 'swift : hello world',
+        name: 'bash : print stdin',
         reqObject: {
-            language: 'swift',
-            script: 'print("hello world")',
+            language: 'bash',
+            script: 'while read line; do echo "$line"; done',
+            stdin: '1 2 3',
         },
         expectedResponse: {
-            val: 'hello world\n',
-            status: 200,
-            error: 0,
-        },
-    },
-
-    // New test cases for Go -3
-    {
-        name: 'go : hello world',
-        reqObject: {
-            language: 'go',
-            script: 'package main\nimport "fmt"\nfunc main() { fmt.Println("hello world") }',
-        },
-        expectedResponse: {
-            val: 'hello world\n',
+            val: '1 2 3\n',
             status: 200,
             error: 0,
         },
@@ -115,7 +158,7 @@ const testCases = [
         name: 'python : hello world',
         reqObject: {
             language: 'python',
-            script: 'print(\'hello world\')',
+            script: 'print("hello world")',
         },
         expectedResponse: {
             val: 'hello world\n',

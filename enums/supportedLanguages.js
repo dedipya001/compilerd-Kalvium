@@ -23,7 +23,7 @@ module.exports = {
     PROMPTV2: 'promptv2',
     MULTIFILE: 'multifile',
     SQLITE3: 'sqlite3',
-    RUST: 'rust',
-    SWIFT: 'swift',
-    GO: 'go',
+    PHP: 'php',
+    PERL: 'perl',
+    BASH: 'bash',
 };

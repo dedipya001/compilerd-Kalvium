@@ -397,7 +397,7 @@ const _executeStatement = (db, sql) => {
     return new Promise((resolve, reject) => {
         db.all(sql, function(err, rows) {
             if (err) {
-                reject(err);
+                reject(err)
             } else {
                 resolve(rows)
             }
@@ -416,7 +416,7 @@ const _executeSqlQueries = async (dbPath, queries) => {
 
     const sqlStatements = []
     try {
-        const ast = parser(queries);
+        const ast = parser(queries)
         if (!ast) {
             db.close()
             return { data: [] }
@@ -872,3 +872,8 @@ const _executeMultiFile = async (req, res, response) => {
 }
 
 module.exports = { execute }
+
+
+
+
+

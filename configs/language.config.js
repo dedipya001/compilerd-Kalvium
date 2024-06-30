@@ -7,9 +7,9 @@ const {
     RUBY,
     PROMPTV1,
     PROMPTV2,
-    RUST,
-    SWIFT,
-    GO,
+    PHP,
+    Perl,
+    Bash
 } = require('../enums/supportedLanguages');
 
 const ONE_MB = 1024; // ulimit uses Kilobyte as base unit
@@ -26,14 +26,14 @@ const LANGUAGES_CONFIG = {
     [CPP]: {
         compile: 'g++ -o a.out -pthread -O0 solution.cpp',
         run: './a.out',
-        timeout: 15,
+        timeout: 30000,
         filename: 'solution.cpp',
         memory: ALLOWED_RAM * ONE_MB,
     },
     [PYTHON]: {
         compile: 'python -m compileall -q solution.py',
         run: 'python solution.py',
-        timeout: 15,
+        timeout: 30,
         filename: 'solution.py',
         memory: ALLOWED_RAM * ONE_MB,
     },
@@ -58,25 +58,25 @@ const LANGUAGES_CONFIG = {
         filename: 'solution.rb',
         memory: ALLOWED_RAM * ONE_MB,
     },
-    [RUST]: {
-        compile: 'rustc -o solution solution.rs',
-        run: './solution',
+    [PHP]: {
+        compile: 'php -l solution.php',
+        run: 'php solution.php',
         timeout: 15,
-        filename: 'solution.rs',
+        filename: 'solution.php',
         memory: ALLOWED_RAM * ONE_MB,
     },
-    [SWIFT]: {
-        compile: 'swiftc -o solution solution.swift',
-        run: './solution',
+    [Perl]: {
+        compile: 'perl -c solution.pl',
+        run: 'perl solution.pl',
         timeout: 15,
-        filename: 'solution.swift',
+        filename: 'solution.pl',
         memory: ALLOWED_RAM * ONE_MB,
     },
-    [GO]: {
-        compile: 'go build -o solution solution.go',
-        run: './solution',
+    [Bash]: {
+        compile: 'bash -n solution.sh',
+        run: 'bash solution.sh',
         timeout: 15,
-        filename: 'solution.go',
+        filename: 'solution.sh',
         memory: ALLOWED_RAM * ONE_MB,
     },
     [PROMPTV1]: {
