@@ -15,5 +15,5 @@ const execute = async (req, res) => {
 }
 
 module.exports = {
-    execute,
+    execute
 }

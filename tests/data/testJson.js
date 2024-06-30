@@ -211,11 +211,8 @@ const testCases = [
             script:
                 '#include <stdio.h>\n' +
                 'int main() {\n' +
-                '    int number;\n' +
-                '    while (scanf("%d", &number) == 1) {\n' +
-                '        printf("%d\\n", number);\n' +
-                '    } \n' +
-                '    return 0;\n' +
+                '    int number;while (scanf("%d", &number) == 1) {printf("%d\\n", number);}\n' +
+                'return 0;\n' +
                 '}',
             stdin: '1 2 3',
         },
@@ -272,7 +269,7 @@ const testCases = [
         reqObject: {
             language: 'ruby',
             script:
-                'print "hello world"'
+                'print "hello world"',
         },
         expectedResponse: {
             val: 'hello world',
@@ -287,7 +284,7 @@ const testCases = [
             script:
                 'user_input = gets.chomp\n' +
                 'puts user_input',
-            stdin: '10\n'
+            stdin: '10\n',
         },
         expectedResponse: {
             val: '10\n',
