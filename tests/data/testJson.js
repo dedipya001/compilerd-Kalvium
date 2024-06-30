@@ -1,4 +1,45 @@
 const testCases = [
+    // New test cases for Rust  -1 
+    {
+        name: 'rust : hello world',
+        reqObject: {
+            language: 'rust',
+            script: 'fn main() { println!("hello world"); }',
+        },
+        expectedResponse: {
+            val: 'hello world\n',
+            status: 200,
+            error: 0,
+        },
+    },
+
+    // New test cases for Swift -2
+    {
+        name: 'swift : hello world',
+        reqObject: {
+            language: 'swift',
+            script: 'print("hello world")',
+        },
+        expectedResponse: {
+            val: 'hello world\n',
+            status: 200,
+            error: 0,
+        },
+    },
+
+    // New test cases for Go -3
+    {
+        name: 'go : hello world',
+        reqObject: {
+            language: 'go',
+            script: 'package main\nimport "fmt"\nfunc main() { fmt.Println("hello world") }',
+        },
+        expectedResponse: {
+            val: 'hello world\n',
+            status: 200,
+            error: 0,
+        },
+    },
     {
         name: 'cpp : hello world',
         reqObject: {
